@@ -6,7 +6,7 @@ public class Test1 {
 
     public static void main(String[] args) {
         int data[] = {53,436,32,84,9,17,346};
-        sortArray2(data);
+        System.out.println(binaryFindition(data, 2));
     }
 
     public static void sortArray(int[] data){
@@ -46,6 +46,28 @@ public class Test1 {
     }
 
     //二分查找
-    
+    public static int binaryFindition(int[] data, int count){
+
+        Arrays.sort(data);
+
+        int start = 0;
+        int end = data.length;
+        int mul = (start + end) / 2;
+
+        while(start <= end){
+            if(data[mul] == count){
+                return count;
+            }else if(data[mul] < count){
+                start = mul + 1;
+                mul = (start + end) / 2;
+            }else{
+                end = mul - 1;
+                mul = (start + end) / 2;
+            }
+
+        }
+        return -1;
+
+    }
 
 }
